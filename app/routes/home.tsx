@@ -1,5 +1,8 @@
 import Navbar from "~/components/navbar";
 import type { Route } from "./+types/home";
+import type { title } from "process";
+import { resumes } from "constants";
+import { resume } from "react-dom/server";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -18,5 +21,11 @@ export default function Home() {
         <h2>Review your submissions and check AI-Powered Feedback.</h2>
       </div>
     </section>
+
+    {resumes.map(callbackfn: (resume)=> (
+      <div>
+       <h1>{resume.jobTitle}</h1>
+      </div>
+    ))}
   </main>
 }
